@@ -6,11 +6,14 @@ import Header from "../Header/Header.jsx";
 import Main from "../Main/Main.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
-import { getWeather } from "../../utils/weatherApi.js";
+import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 
 function App() {
-  const [weatherData, setWeatherData] = useState({ type: "cold" });
-  const [activeModal, setActiveModal] = useState("preview");
+  const [weatherData, setWeatherData] = useState({
+   type: "",
+   temp: { F: 999, C: 999 },
+    });
+  const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
   const handleCardClick = (card) => {
@@ -28,7 +31,7 @@ function App() {
 
  useEffect(() => {
   getWeather(coordinates, APIkey)
-   .then((res) => {
+   .then((data) => {
 
   })
  }, []);
