@@ -11,7 +11,8 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 function App() {
   const [weatherData, setWeatherData] = useState({
    type: "",
-   temp: { F: 999, C: 999 },
+   temp: { F: 999 },
+   city:"",
     });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
@@ -32,14 +33,16 @@ function App() {
  useEffect(() => {
   getWeather(coordinates, APIkey)
    .then((data) => {
-
+   const filteredData = filterWeatherData(data);
+   setWeatherData(filteredData);
   })
+  .catch(console.error);
  }, []);
 
   return (
     <div className="page">
       <div className="page__content">
-        <Header handleAddClick={handleAddClick} />
+        <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
       </div>
       <ModalWithForm
