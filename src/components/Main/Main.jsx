@@ -11,18 +11,20 @@ function Main({ weatherData, clothingItems = defaultClothingItems, handleCardCli
       <p className="cards__text">
       Today is {weatherData.temp.F} &deg; F / You may want to wear:
         </p>  
-        <ul className="cards__list">
+        <ul className="card__list">
         {defaultClothingItems 
         .filter((item) => {
           if (!weatherData.type || weatherData.type ) return true;
         return item.weather === weatherData.type;
         })
         .map((item) => {
+          return (
         <ItemCard
          key={item._id || item.id}
           item={item} 
           onCardClick={handleCardClick}
-         />;
+         />
+          );
         })}
         </ul>
         </section>   
