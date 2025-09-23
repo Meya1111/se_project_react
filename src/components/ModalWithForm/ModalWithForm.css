@@ -16,7 +16,15 @@ visibility: hidden;
 }
 
 .modal__title {
- margin: 0;   
+ margin: 0;  
+ font-family: 'Cabinet Grotesk', Arial, sans-serif;
+ font-size: 16px; 
+ font-style: bold;
+ font-weight: 700;
+ line-height: 20px;
+ letter-spacing: 0;
+ color: #000;
+ height: 20px;
 }
 
 .modal__close {
@@ -52,4 +60,20 @@ visibility: hidden;
  padding: 0;   
  display: flex;
  flex-direction: column;
+}
+
+.modal__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 36px;
+  width: hug(124px);
+  padding: 0px 16px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #0000004D;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04) ;
+  align-self: flex-start;
 }

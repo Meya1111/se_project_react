@@ -14,7 +14,7 @@ function Main({ weatherData, clothingItems = defaultClothingItems, handleCardCli
         <ul className="card__list">
         {defaultClothingItems 
         .filter((item) => {
-          if (!weatherData.type || weatherData.type ) return true;
+          if (!weatherData?.type) return true;
         return item.weather === weatherData.type;
         })
         .map((item) => {
