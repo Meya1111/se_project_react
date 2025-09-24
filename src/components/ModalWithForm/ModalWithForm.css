@@ -9,10 +9,15 @@ display: flex;
 justify-content: center;
 align-items: center;    
 visibility: hidden;
+place-items: center;
 }
 
 .modal_opened {
   visibility: visible;
+}
+
+.modal__overlay {
+  position: absolute;
 }
 
 .modal__title {

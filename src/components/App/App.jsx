@@ -8,6 +8,8 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import { defaultClothingItems } from "../../utils/constants.js";
+import Footer from "../footer/Footer.jsx";
+import "../footer/Footer.css";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -96,6 +98,10 @@ function App() {
        Card={selectedCard} 
        onClose={closeActiveModal}
        />
+       <footer className="footer">
+        <p className="footer__text">Developed by Name Surname</p>
+        <p className="footer__year">2022</p>
+       </footer>
     </div>
   );
 }
