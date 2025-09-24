@@ -10,6 +10,7 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import { defaultClothingItems } from "../../utils/constants.js";
 import Footer from "../footer/Footer.jsx";
 import "../footer/Footer.css";
+import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
