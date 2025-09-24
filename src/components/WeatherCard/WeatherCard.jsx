@@ -2,10 +2,14 @@ import "./WeatherCard.css";
 import { weatherOptions, defaultWeatherOptions } from "../../utils/constants";
 
 function WeatherCard({ weatherData }) {
+  const normalizeCondition = (condition) => {
+    if (condition === "clouds") return "cloudy";
+    return condition.toLowerCase();
+  };
   const filteredOptions = weatherOptions.filter((option) => {
     return (
       option.day === weatherData.isDay &&
-      option.condition === weatherData.condition
+      option.condition.toLowerCase() === normalizeCondition(weatherData.condition)
     );
   });
 

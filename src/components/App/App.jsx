@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import "./App.css";
-import { coordinates,APIkey } from "../../utils/constants.js";
+import { coordinates,apikey } from "../../utils/constants.js";
 import Header from "../Header/Header.jsx";
 import Main from "../Main/Main.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
@@ -35,7 +35,7 @@ function App() {
   };
 
  useEffect(() => {
-  getWeather(coordinates, APIkey)
+  getWeather(coordinates, apikey)
    .then((data) => {
    const filteredData = filterWeatherData(data);
    setWeatherData(filteredData);
@@ -78,31 +78,28 @@ function App() {
         <fieldset className="modal__radio-buttons">
           <legend className="modal__legend">Select the weather type:</legend>
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
-            <input id="cold" type="radio" className="modal__radio-input" /> Hot
+            <input id="hot" type="radio" value="hot" className="modal__radio-input" /> Hot
           </label>
           <label
             htmlFor="warm"
             className="modal__label modal__label_type_radio"
           >
-            <input id="cold" type="radio" className="modal__radio-input" /> Warm
+            <input id="warm" type="radio" value="warm" className="modal__radio-input" /> Warm
           </label>
           <label
             htmlFor="cold"
             className="modal__label modal__label_type_radio"
           >
-            <input id="cold" type="radio" className="modal__radio-input" /> cold
+            <input id="cold" value="cold" type="radio" className="modal__radio-input" /> cold
           </label>
         </fieldset>
       </ModalWithForm>
       <ItemModal
        activeModal={activeModal} 
-       Card={selectedCard} 
+       item={selectedCard} 
        onClose={closeActiveModal}
        />
-       <footer className="footer">
-        <p className="footer__text">Developed by Name Surname</p>
-        <p className="footer__year">2022</p>
-       </footer>
+    <Footer />
     </div>
   );
 }
