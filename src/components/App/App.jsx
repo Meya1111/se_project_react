@@ -21,6 +21,7 @@ function App() {
     });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -48,7 +49,10 @@ function App() {
     <div className="page">
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-        <Main weatherData={weatherData} clothingItems={clothingItems} handleCardClick={handleCardClick} 
+        <Main 
+        weatherData={weatherData}
+        clothingItems={clothingItems} 
+         handleCardClick={handleCardClick} 
         />
       </div>
       <ModalWithForm
