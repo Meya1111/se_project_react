@@ -11,6 +11,7 @@ import { defaultClothingItems } from "../../utils/constants.js";
 import Footer from "../footer/Footer.jsx";
 import "../footer/Footer.css";
 import WeatherCard from "../WeatherCard/WeatherCard.jsx";
+import currentTemperatureUnitContext from "../../contexts/currentTemperatureUnit.jsx";
 
 function App() {
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
@@ -22,6 +23,10 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+
+  const handleToggleSwitchChange = ()=> {
+    setCurrentTemperatureUnit(currentTemperatureUnit === "F"? "C":"F");
+  }
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -46,6 +51,8 @@ function App() {
  }, []);
 
   return (
+    <currentTemperatureUnitContext.Provider value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+    >
     <div className="page">
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
@@ -105,6 +112,7 @@ function App() {
        />
     <Footer />
     </div>
+    </currentTemperatureUnitContext.Provider>
   );
 }
 
