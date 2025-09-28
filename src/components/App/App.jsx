@@ -5,6 +5,7 @@ import { coordinates,apikey } from "../../utils/constants.js";
 import Header from "../Header/Header.jsx";
 import Main from "../Main/Main.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
+import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import { defaultClothingItems } from "../../utils/constants.js";
@@ -17,8 +18,10 @@ function App() {
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
   const [weatherData, setWeatherData] = useState({
    type: "",
-   temp: { F: 999 },
+   temp: { F: 999, C: 999 },
+   condition:"",
    city:"",
+   isDay: false,
     });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
@@ -68,6 +71,10 @@ function App() {
         isOpen={activeModal === "add-garment"}
         onClose={closeActiveModal}
       >
+      <AddItemModal   
+       isOpen={activeModal === "add-garment"}
+       onClose={closeActiveModal}
+       ></AddItemModal>
         <label htmlFor="name" className="modal__label">
           Name{" "}
           <input

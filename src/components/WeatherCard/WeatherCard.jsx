@@ -1,11 +1,15 @@
 import "./WeatherCard.css";
 import { weatherOptions, defaultWeatherOptions } from "../../utils/constants";
+import { useContext } from "react";
+import currentTemperatureUnitContext from "../../contexts/currentTemperatureUnit";
 
 function WeatherCard({ weatherData }) {
-  const normalizeCondition = (condition) => {
+const { currentTemperatureUnit } = useContext(currentTemperatureUnitContext);
+
+  function normalizeCondition(condition) {
     if (condition === "clouds") return "cloudy";
     return condition.toLowerCase();
-  };
+  }
   const filteredOptions = weatherOptions.filter((option) => {
     return (
       option.day === weatherData.isDay &&
@@ -22,7 +26,9 @@ function WeatherCard({ weatherData }) {
 
   return (
     <section className="weather-card">
-      <p className="weather-card__temp">{weatherData.temp.F} &deg; F</p>
+      <p className="weather-card__temp">
+        {weatherData.temp[currentTemperatureUnit]} &deg;{currentTemperatureUnit} 
+      </p>
       <img 
       src={weatherOption?.url} 
       alt={`Card showing ${weatherOption?.day ? "day" : "night"}time ${weatherOption?.condition} weather`} 
