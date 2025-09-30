@@ -1,6 +1,6 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const AddItemModal = ({ isOpen, handleSubmit, onClose }) => {
+const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
       
     return (
       <ModalWithForm 
@@ -8,7 +8,7 @@ const AddItemModal = ({ isOpen, handleSubmit, onClose }) => {
        name="new-card"
        isOpen={isOpen}
        onClose={onClose}
-       onSubmit={handleSubmit}
+       onSubmit={onAddItem}
        > 
     <label htmlFor="name" className="modal__label">
           Name{" "}
