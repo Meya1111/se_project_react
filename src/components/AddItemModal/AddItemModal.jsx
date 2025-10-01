@@ -1,7 +1,14 @@
+import { useForm } from "../../contexts/hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
-      
+    const defaultValues = {
+     name: "",
+     link: "",
+     weatherType: "",   
+    };
+   const { values, handleChange } = useForm{defaultValues};
+
     return (
       <ModalWithForm 
        title="New garment"

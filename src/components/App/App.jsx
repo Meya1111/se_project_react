@@ -40,6 +40,8 @@ function App() {
     setActiveModal("add-garment");
   };
 
+  const onAddItem = (data) => {};
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
