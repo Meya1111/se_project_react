@@ -40,8 +40,16 @@ function App() {
     setActiveModal("add-garment");
   };
 
-  const onAddItem = (data) => {};
-
+  const onAddItem = (inputValues) => {
+    const newCardData = {
+      id: Date.now(), 
+      name: inputValues.name,
+      link: inputValues.link,
+      weather: inputValues.weatherType,
+    };
+    setClothingItems([...clothingItems, newCardData]); 
+    closeActiveModal();
+  };
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -70,6 +78,7 @@ function App() {
       <AddItemModal   
        isOpen={activeModal === "add-garment"}
        onClose={closeActiveModal}
+       onAddItem={onAddItem}
        ></AddItemModal>
     <Footer />
     </div>

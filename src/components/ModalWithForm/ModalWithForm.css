@@ -116,3 +116,7 @@ place-items: center;
   margin-bottom: 12px;
   margin-left: 28px;
 }
+
+.modal__fieldset {
+  border: none;
+}
