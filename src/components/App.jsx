@@ -2,7 +2,7 @@ import "./App.css";
 
 function App() {
   return (
-  <div ClassName= "page">
+  <div className= "page">
   <div className= "page__content">Hello</div>
   </div>
   );
