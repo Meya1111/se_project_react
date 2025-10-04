@@ -7,12 +7,14 @@ import Main from "../Main/Main.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
+import Profile from "../Profile/Profile.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import { defaultClothingItems } from "../../utils/constants.js";
 import Footer from "../footer/Footer.jsx";
 import "../footer/Footer.css";
 import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 import currentTemperatureUnitContext from "../../contexts/currentTemperatureUnit.jsx";
+import { Routes, Route  } from "react-router-dom";
 
 function App() {
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
@@ -62,6 +64,20 @@ function App() {
   })
   .catch(console.error);
  }, []);
+
+ <Routes>
+  <Route
+  path="/"
+  element={
+    <Main weatherData={weatherData}
+     onCardClick={handleCardClick} 
+     />
+    }
+  />
+  <Route path="/profile" 
+   element={<Profile onCardClick={handleCardClick} />} 
+  />
+ </Routes>
 
   return (
     <currentTemperatureUnitContext.Provider value={{ currentTemperatureUnit, handleToggleSwitchChange }}
