@@ -11,7 +11,7 @@
 .header__date-and-location {
  margin: 0;   
  color: #000;
- font-style: bold;
+ font-weight: bold;
  font-size: 20px;
  line-height: 24px;
  font-weight: 700;
