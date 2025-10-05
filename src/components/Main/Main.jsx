@@ -17,8 +17,7 @@ function Main({ weatherData, clothingItems, handleCardClick }) {
       Today is {displayTemp} / You may want to wear:
         </p>  
         <ul className="card__list">
-        {clothingItems
-        .filter((item) => {
+        {clothingItems?.filter((item) => {
           if (!weatherData?.type) return true;
         return item.weather === weatherData.type;
         })

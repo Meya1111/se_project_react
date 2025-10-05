@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 
 import "./App.css";
-import { coordinates,apikey } from "../../utils/constants.js";
+import { coordinates, apiKey } from "../../utils/constants.js";
 import Header from "../Header/Header.jsx";
 import Main from "../Main/Main.jsx";
-import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
@@ -12,8 +11,7 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import { defaultClothingItems } from "../../utils/constants.js";
 import Footer from "../footer/Footer.jsx";
 import "../footer/Footer.css";
-import WeatherCard from "../WeatherCard/WeatherCard.jsx";
-import currentTemperatureUnitContext from "../../contexts/currentTemperatureUnit.jsx";
+import CurrentTemperatureUnitContext from "../../contexts/currentTemperatureUnit.jsx";
 import { Routes, Route  } from "react-router-dom";
 
 function App() {
@@ -57,19 +55,32 @@ function App() {
   };
 
  useEffect(() => {
-  getWeather(coordinates, apikey)
+  getWeather(coordinates, apiKey)
    .then((data) => {
    const filteredData = filterWeatherData(data);
    setWeatherData(filteredData);
   })
   .catch(console.error);
+
+  fetch("http://localhost:3001/items")
+  .then((res) => res.json())
+  .then((data) => {
+    setClothingItems(data);
+  })
  }, []);
  
- <Routes>
+  return (
+    <CurrentTemperatureUnitContext.Provider value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+    >
+    <div className="page">
+      <div className="page__content">
+        <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+        <Routes>
   <Route
   path="/"
   element={
     <Main weatherData={weatherData}
+    clothingItems={clothingItems}
      onCardClick={handleCardClick} 
      />
     }
@@ -78,18 +89,6 @@ function App() {
    element={<Profile onCardClick={handleCardClick} />} 
   />
  </Routes>
-
-  return (
-    <currentTemperatureUnitContext.Provider value={{ currentTemperatureUnit, handleToggleSwitchChange }}
-    >
-    <div className="page">
-      <div className="page__content">
-        <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-        <Main 
-        weatherData={weatherData}
-        clothingItems={clothingItems} 
-         handleCardClick={handleCardClick} 
-        />
       </div>
       <AddItemModal   
        isOpen={activeModal === "add-garment"}
@@ -98,7 +97,7 @@ function App() {
        ></AddItemModal>
     <Footer />
     </div>
-    </currentTemperatureUnitContext.Provider>
+    </CurrentTemperatureUnitContext.Provider>
   );
 }
 
