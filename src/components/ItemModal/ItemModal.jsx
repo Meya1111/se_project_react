@@ -1,9 +1,9 @@
 import "./ItemModal.css";
 import closeIcon from "../../assets/closebtn2.png";
 
-function ItemModal({ activeModal,onClose, item }) {
+function ItemModal({ onClose, item, isOpen }) {
 return (
- <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
+ <div className={isOpen ? "modal modal_opened" : "modal"}>
    <div className="modal__content modal__content_type_image">
    <button
        onClick={onClose}

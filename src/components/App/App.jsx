@@ -95,8 +95,13 @@ function App() {
        onClose={closeActiveModal}
        onAddItem={onAddItem}
        ></AddItemModal>
+       </div>
+      <ItemModal   
+       isOpen={activeModal === "preview"}
+       onClose={closeActiveModal}
+       item={selectedCard}
+       ></ItemModal>
     <Footer />
-    </div>
     </CurrentTemperatureUnitContext.Provider>
   );
 }
