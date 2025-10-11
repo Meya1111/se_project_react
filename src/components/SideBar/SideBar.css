@@ -1,0 +1,16 @@
+.profile__sidebar {
+ visibility: visible;   
+ width: 200px;
+ height: 300px;
+}
+
+.profile__page {
+ display: flex;
+ gap: 24px;
+ align-items: flex-start;   
+}
+
+.profile {
+    width: 200px;
+    height: 300px;
+  }

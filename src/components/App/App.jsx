@@ -14,6 +14,7 @@ import "../footer/Footer.css";
 import CurrentTemperatureUnitContext from "../../contexts/currentTemperatureUnit.jsx";
 import { Routes, Route  } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
+import SideBar from "../SideBar/SideBar.jsx";
 
 function App() {
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
@@ -75,7 +76,7 @@ function App() {
     >
     <div className="page">
       <div className="page__content">
-        <Header handleAddClick={handleAddClick} weatherData={weatherData} username="Terrence Tegegne" avatar="avatar" />
+        <Header handleAddClick={handleAddClick} weatherData={weatherData} username="Terrence Tegegne" avatar={avatar} />
         <Routes>
   <Route
   path="/"
@@ -87,8 +88,18 @@ function App() {
     }
   />
   <Route path="/profile" 
-   element={<Profile onCardClick={handleCardClick} />} 
-  />
+     element={
+       <div className="profile-page">
+         <SideBar username="Terrence Tegegne" avatar={avatar} />
+         <Profile
+           onCardClick={handleCardClick}
+           username="Terrence Tegegne"
+           avatar={avatar}
+           clothingItems={clothingItems}
+         />
+       </div>
+     }
+   />
  </Routes>
       </div>
       <AddItemModal   

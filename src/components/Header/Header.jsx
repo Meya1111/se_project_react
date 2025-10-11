@@ -1,6 +1,6 @@
 import "./Header.css"
 import logo from "../../assets/logo2.svg";
-import avatar from "../../assets/avatar.png";
+import defaultAvatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./Header.css";
 import { Link } from "react-router-dom";
@@ -30,7 +30,7 @@ function Header({ handleAddClick, weatherData, username, avatar }) {
       {avatar ? (
         <img
         className="header__avatar"
-        src={avatar || avatarDefault}
+        src={avatar || defaultAvatar}
         alt="user avatar"
         />
       ) : (

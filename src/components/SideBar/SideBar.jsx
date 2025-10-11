@@ -1,18 +1,19 @@
 import "./SideBar.css";
+import avatar from "../../assets/avatar.png";
 
-function SideBar() {
+function SideBar({ username,avatar: userAvatar }) {
   return (
   <div className="profile">
    <section className="profile__sidebar">
     <div className="profile__avatar-container">
       <img 
-      src=""
+      src={userAvatar}
       alt="User avatar"
       className="profile__avatar"
       />  
+      <p className="profile__username">{username}</p>
     </div>
     </section> 
-    <section className="profile__clothing-items"></section>
   </div>  
   );   
 }

@@ -2,7 +2,8 @@ import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 import { defaultClothingItems } from "../../utils/constants";
 
-function ClothesSection({ clothingItems,onCardClick, onAddClick }) {
+function ClothesSection({ clothingItems = [], onCardClick, onAddClick }) {
+  const list = clothingItems && clothingItems.length ? clothingItems : defaultClothingItems;
 return (
  <div className="clothes-section">
     <div>
@@ -10,7 +11,7 @@ return (
       <button onClick={onAddClick}>+ Add New</button>  
     </div>
     <ul className="clothes-section__items">
-        {clothingItems.map((filteredCard) => (
+        {list.map((filteredCard) => (
          <ItemCard
          key={filteredCard._id}
           card={filteredCard} 
