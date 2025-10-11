@@ -13,6 +13,7 @@ import Footer from "../footer/Footer.jsx";
 import "../footer/Footer.css";
 import CurrentTemperatureUnitContext from "../../contexts/currentTemperatureUnit.jsx";
 import { Routes, Route  } from "react-router-dom";
+import avatar from "../../assets/avatar.png";
 
 function App() {
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
@@ -74,7 +75,7 @@ function App() {
     >
     <div className="page">
       <div className="page__content">
-        <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+        <Header handleAddClick={handleAddClick} weatherData={weatherData} username="Terrence Tegegne" avatar="avatar" />
         <Routes>
   <Route
   path="/"
