@@ -49,7 +49,7 @@ function App() {
       link: inputValues.link,
       weather: inputValues.weatherType,
     };
-    setClothingItems([...clothingItems, newCardData]); 
+    setClothingItems((prev) => [newCardData, ...prev]); 
     closeActiveModal();
   };
   const closeActiveModal = () => {

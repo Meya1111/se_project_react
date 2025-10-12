@@ -24,7 +24,7 @@ function Main({ weatherData, clothingItems, onCardClick }) {
         .map((item) => {
           return (
         <ItemCard
-         key={item._id || item.id}
+         key={item._id || item.id || `${item.name}-${index}`}
           item={item} 
           onCardClick={onCardClick}
          />

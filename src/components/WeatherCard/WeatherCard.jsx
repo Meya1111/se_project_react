@@ -5,12 +5,14 @@ import currentTemperatureUnitContext from "../../contexts/currentTemperatureUnit
 
 function WeatherCard({ weatherData }) {
 const { currentTemperatureUnit } = useContext(currentTemperatureUnitContext);
+if (!weatherData) return null;
 
   function normalizeCondition(condition) {
     if (condition === "clouds") return "cloudy";
     return condition.toLowerCase();
   }
   const filteredOptions = weatherOptions.filter((option) => {
+    if (!weatherData) return false;
     return (
       option.day === weatherData.isDay &&
       option.condition.toLowerCase() === normalizeCondition(weatherData.condition)
@@ -18,7 +20,7 @@ const { currentTemperatureUnit } = useContext(currentTemperatureUnitContext);
   });
 
   let weatherOption;
-  if (filteredOptions.length === 0) {
+  if ( !weatherData || filteredOptions.length === 0) {
     weatherOption = defaultWeatherOptions[weatherData.isDay ? "day" : "night"];
   } else {
     weatherOption = filteredOptions[0];
