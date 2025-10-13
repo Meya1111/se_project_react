@@ -1,36 +1,36 @@
 .header {
- display: flex;   
- align-items: center;
- padding: 32px 0 28px;
- justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding: 32px 0 28px;
+  justify-content: space-between;
 }
 
 .header__logo {
- margin-right: 24px;   
+  margin-right: 24px;
 }
 
 .header__date-and-location {
- margin: 0;   
- color: #000;
- font-weight: bold;
- font-size: 20px;
- line-height: 24px;
- font-weight: 700;
- letter-spacing: 0;
- font-family: 'Cabinet Grotesk', Arial, sans-serif;
+  margin: 0;
+  color: #000;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
 }
 
 .header__add-clothes-btn {
- margin: 0 20px 0 auto; 
- border: none;
- font-family: 'Cabinet Grotesk', Arial, sans-serif;
- font-size: 20px;
- border-radius: 4px;
- cursor: pointer;
- color: #000;
- letter-spacing: 0;
- font-style: bold;
- font-weight: 700;
+  margin: 0 20px 0 auto;
+  border: none;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-size: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #000;
+  letter-spacing: 0;
+  font-style: bold;
+  font-weight: 700;
 }
 
 .header__add-clothes-btn:hover {
@@ -38,23 +38,23 @@
 }
 
 .header__user-container {
- display: inline-flex;
- align-items: center;  
- gap: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .header__username {
- margin: 0;  
- font-size: 20px; 
- font-style: bold;
- color: #000;
- font-weight: 700;
- font-family: 'Cabinet Grotesk', Arial, sans-serif;
+  margin: 0;
+  font-size: 20px;
+  font-style: bold;
+  color: #000;
+  font-weight: 700;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
 }
 
 .header__link {
- text-decoration: none;
- color: #000; 
+  text-decoration: none;
+  color: #000;
 }
 
 .header__avatar {
@@ -66,8 +66,22 @@
 }
 
 .header__right {
- display: flex;
- align-items: center;
- gap: 16px;
- white-space: nowrap; 
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  white-space: nowrap;
+}
+
+.navigation {
+  height: 40px;
+  width: 1000%;
+}
+
+.navgiation__container {
+  min-width: fit-content;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-end;
 }
