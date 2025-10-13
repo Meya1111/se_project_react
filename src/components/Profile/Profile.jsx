@@ -28,7 +28,15 @@ function Profile({
           <h1 className="profile__name">{username}</h1>
         </div>
       </section>
+      <SideBar />
 
+      <ClothesSection
+      clothingItems={clothingItems}
+      onCardClick={onCardClick}
+      onAddClick={onAddClick}
+      weatherData={weatherData}
+      />
+      
       <section className="cards">
         <div className="cards__text">
           <p>
