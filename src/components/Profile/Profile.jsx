@@ -22,7 +22,7 @@ function Profile({
   return (
     <div className="profile">
       <section className="profile-sidebar">
-        <SideBar />
+        <SideBar avatar={avatar} />
       </section>
       <section className="profile-clothes">
         <ClothesSection

@@ -63,14 +63,20 @@ function App() {
    setWeatherData(filteredData);
   })
   .catch(console.error);
-
   fetch("http://localhost:3001/items")
-  .then((res) => res.json())
-  .then((data) => {
-    setClothingItems(data);
+  .then((res) => {
+  if (res.ok) {
+  return res.json();
+  }
+  return Promise.reject(`Error ${res.status}`);
   })
- }, []);
- 
+  .then((data) => {
+  setClothingItems(data);
+  })
+  .catch((err) => {
+  console.error(err);
+  });
+},[])
   return (
     <CurrentTemperatureUnitContext.Provider value={{ currentTemperatureUnit, handleToggleSwitchChange }}
     >
