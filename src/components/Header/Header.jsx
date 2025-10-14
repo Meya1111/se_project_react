@@ -19,8 +19,8 @@ function Header({ handleAddClick, weatherData, username, avatar }) {
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
-      <nav class="navigation">
-        <ul class="navgiation__container">
+      <nav className="navigation">
+        <ul className="navgiation__container">
           <ToggleSwitch />
           <li>
             <button

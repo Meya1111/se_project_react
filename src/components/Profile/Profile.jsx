@@ -20,24 +20,20 @@ function Profile({
       ? Math.round(weatherData?.temp?.f ?? 0)
       : Math.round(weatherData?.temp?.c ?? 0);
   return (
-    <main className="content">
-      <WeatherCard weatherData={weatherData} />
-      <section className="profile">
-        <div className="profile__header">
-          <img className="profile__avatar" src={avatar} alt="User avatar" />
-          <h1 className="profile__name">{username}</h1>
-        </div>
+    <div className="profile">
+      <section className="profile-sidebar">
+        <SideBar />
       </section>
-      <SideBar />
+      <section className="profile-clothes">
+        <ClothesSection
+          clothingItems={clothingItems}
+          onCardClick={onCardClick}
+          onAddClick={onAddClick}
+          weatherData={weatherData}
+        />
+      </section>
 
-      <ClothesSection
-      clothingItems={clothingItems}
-      onCardClick={onCardClick}
-      onAddClick={onAddClick}
-      weatherData={weatherData}
-      />
-      
-      <section className="cards">
+      {/* <section className="cards">
         <div className="cards__text">
           <p>
             Today is{" "}
@@ -68,8 +64,8 @@ function Profile({
               />
             ))}
         </ul>
-      </section>
-    </main>
+      </section> */}
+    </div>
   );
 }
 
