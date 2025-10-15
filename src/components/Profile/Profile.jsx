@@ -21,7 +21,8 @@ function Profile({
       : Math.round(weatherData?.temp?.c ?? 0);
   return (
     <div className="profile">
-      <section className="profile-clothes">
+      <SideBar />
+       <section className="profile-clothes">
         <ClothesSection
           clothingItems={clothingItems}
           onCardClick={onCardClick}
