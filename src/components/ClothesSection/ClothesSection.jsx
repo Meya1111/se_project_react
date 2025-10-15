@@ -5,7 +5,7 @@ import { defaultClothingItems } from "../../utils/constants";
 function ClothesSection({ clothingItems, onCardClick, onAddClick }) {
 return (
  <div className="clothes-section">
-    <div>
+    <div className="clothes-section__header">
       <p>Your items</p>
       <button onClick={onAddClick}>+ Add New</button>  
     </div>

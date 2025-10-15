@@ -21,9 +21,6 @@ function Profile({
       : Math.round(weatherData?.temp?.c ?? 0);
   return (
     <div className="profile">
-      <section className="profile-sidebar">
-        <SideBar avatar={avatar} />
-      </section>
       <section className="profile-clothes">
         <ClothesSection
           clothingItems={clothingItems}

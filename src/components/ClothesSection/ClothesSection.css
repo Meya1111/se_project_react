@@ -1,0 +1,14 @@
+.clothes-section__items {
+    display: flex;
+    flex-wrap: wrap;  
+    margin: 0;
+    padding: 0 30px;
+    list-style-type: none;
+    gap: 21px; 
+   }
+
+   .clothes-section__header {
+    display: flex;
+    padding-left: 30px;
+    gap: 30px;
+   }

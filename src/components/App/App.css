@@ -7,3 +7,9 @@ font-family: 'Cabinet Grotesk', Arial, sans-serif;
  max-width: 1360px; 
  margin: 0 auto;  
 }
+
+.profile-page {
+  display: flex; 
+  row-gap: 20px; 
+}
+

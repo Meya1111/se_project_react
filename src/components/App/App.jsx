@@ -102,6 +102,7 @@ function App() {
            username="Terrence Tegegne"
            avatar={avatar}
            clothingItems={clothingItems}
+           onAddClick={handleAddClick}
          />
        </div>
      }
