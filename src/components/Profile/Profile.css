@@ -1,3 +1,13 @@
 .profile {
-display: flex;
+ display: flex;
+ flex-wrap: wrap;  
+ margin: 0;
+ padding: 0;
+ list-style-type: none;
+ gap: 21px;
+ flex-direction: row;
+}
+
+.profile-sidebar {
+ flex: 0 0 200px;   
 }

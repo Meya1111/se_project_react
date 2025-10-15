@@ -2,16 +2,9 @@ import "./ModalWithForm.css";
 import closeIcon from "../../assets/closebtn2.png"
 import { useState } from "react";
 
-const ModalWithForm = ({
-title,
-name,
-buttonText = "Save",
-onClose,
-children,
-isOpen,
-onSubmit,
-}) => (
-
+function ModalWithForm({ title, name, isOpen, onClose, onSubmit, children, buttonText= "Save" }) {
+ if (!isOpen) return null;    
+return (
      <div 
       className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content"> 
@@ -28,5 +21,6 @@ onSubmit,
       </div>
      </div>   
 );
+}
 
 export default ModalWithForm;

@@ -32,39 +32,6 @@ function Profile({
           weatherData={weatherData}
         />
       </section>
-
-      {/* <section className="cards">
-        <div className="cards__text">
-          <p>
-            Today is{" "}
-            {typeof displayTemp === "number"
-              ? displayTemp
-              : Math.round(weatherData?.temp?.f ?? 0)}
-            °<span> • Your wardrobe</span>
-          </p>
-          <button
-            className="cards__add-button"
-            type="button"
-            onClick={onAddClick}
-          >
-            + Add clothes
-          </button>
-        </div>
-        <ul className="card__list">
-          {clothingItems
-            ?.filter((item) => {
-              if (!weatherData?.type) return true;
-              return item.weather === weatherData.type;
-            })
-            .map((item, index) => (
-              <ItemCard
-                key={item._id || item.id || `${item.name}-${index}`}
-                item={item}
-                onCardClick={onCardClick}
-              />
-            ))}
-        </ul>
-      </section> */}
     </div>
   );
 }

@@ -3,7 +3,6 @@ import ItemCard from "../ItemCard/ItemCard";
 import { defaultClothingItems } from "../../utils/constants";
 
 function ClothesSection({ clothingItems, onCardClick, onAddClick }) {
-  console.log(clothingItems)
 return (
  <div className="clothes-section">
     <div>
