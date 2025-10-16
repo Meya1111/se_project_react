@@ -15,6 +15,7 @@ import CurrentTemperatureUnitContext from "../../contexts/currentTemperatureUnit
 import { Routes, Route  } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
 import SideBar from "../SideBar/SideBar.jsx";
+import { getItems, addItem, deleteItem } from "../../utils/api.js";
 
 function App() {
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
@@ -56,6 +57,14 @@ function App() {
     setActiveModal("");
   };
 
+  const handleDeleteItem = (id) => {
+    deleteItem(id)
+    .then(() => {
+      setClothingItems((prev) => prev.filter((c) => (c._id || c.id) !== id));
+    })
+    .finally(() => setActiveModal(""));
+  }
+
  useEffect(() => {
   getWeather(coordinates, apiKey)
    .then((data) => {
@@ -63,7 +72,7 @@ function App() {
    setWeatherData(filteredData);
   })
   .catch(console.error);
-  fetch("http://localhost:3001/items")
+  getItems()
   .then((res) => {
   if (res.ok) {
   return res.json();
@@ -119,6 +128,7 @@ function App() {
        isOpen={activeModal === "preview"}
        onClose={closeActiveModal}
        item={selectedCard}
+       onDelete={handleDeleteItem}
        ></ItemModal>
     <Footer />
     </CurrentTemperatureUnitContext.Provider>
