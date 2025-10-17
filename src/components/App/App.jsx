@@ -8,7 +8,6 @@ import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
-import { defaultClothingItems } from "../../utils/constants.js";
 import Footer from "../footer/Footer.jsx";
 import "../footer/Footer.css";
 import CurrentTemperatureUnitContext from "../../contexts/currentTemperatureUnit.jsx";
@@ -16,7 +15,6 @@ import { Routes, Route } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
 import SideBar from "../SideBar/SideBar.jsx";
 import { getItems, addItem, deleteItem } from "../../utils/api.js";
-import { use } from "react";
 
 function App() {
   const [clothingItems, setClothingItems] = useState([]);
@@ -35,8 +33,6 @@ function App() {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
 
-  // Get the clothing items using the API
-
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
@@ -50,9 +46,18 @@ function App() {
     const newCardData = {
       id: Date.now(),
       name: inputValues.name,
-      link: inputValues.link,
+      imageUrl: inputValues.imageUrl,
       weather: inputValues.weatherType,
     };
+
+    addItem(newCardData)
+    .then((data) => {
+      setClothingItems([...clothingItems, data]);
+      closeActiveModal
+    })
+    .catch(console.error);
+  
+
     setClothingItems((prev) => [newCardData, ...prev]);
     closeActiveModal();
   };
@@ -63,7 +68,8 @@ function App() {
   const handleDeleteItem = (id) => {
     deleteItem(id)
       .then(() => {
-        setClothingItems((prev) => prev.filter((c) => c.id !== id));
+        setClothingItems((prev) => prev.filter((i) => i._id !== id)
+      );
         setActiveModal("");
       })
       .catch(console.error);
