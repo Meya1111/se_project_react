@@ -21,7 +21,7 @@ function Main({ weatherData, clothingItems, onCardClick }) {
           if (!weatherData?.type) return true;
         return item.weather === weatherData.type;
         })
-        .map((item) => {
+        .map((item, index) => {
           return (
         <ItemCard
          key={item._id || item.id || `${item.name}-${index}`}
