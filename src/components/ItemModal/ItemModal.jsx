@@ -26,7 +26,7 @@ return (
         className="modal__delete-btn"
         onClick={handleDelete}
         >
-          Delete
+          Delete item
         </button>
       </div>
     </div> 

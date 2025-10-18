@@ -6,7 +6,7 @@ return (
  <div className="clothes-section">
     <div className="clothes-section__header">
       <p>Your items</p>
-      <button onClick={onAddClick}>+ Add New</button>  
+      <button className="clothes-add__btn" onClick={onAddClick}>+ Add New</button>  
     </div>
     <ul className="clothes-section__items">
         {clothingItems.map((filteredCard) => (

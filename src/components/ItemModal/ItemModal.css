@@ -61,5 +61,7 @@
     display: block;
     margin-left: auto;
     margin-right: 0;
+    background: none;
+    color: #FF4D00;
   }
   

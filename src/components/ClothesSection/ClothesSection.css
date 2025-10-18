@@ -14,5 +14,10 @@
     border: none;
    }
 
+   .clothes-add__btn {
+    border: none;
+    background: none;
+    color: #00000099;
+   }
    
   

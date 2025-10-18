@@ -8,8 +8,6 @@ function SideBar({ username, avatar: userAvatar }) {
           {
     <img 
       src={userAvatar}
-      alt="User avatar"
-      className="profile__avatar"
       />   
       }
           <p className="sidebar__username">{username}</p>
