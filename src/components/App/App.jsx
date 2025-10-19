@@ -44,7 +44,7 @@ function App() {
 
   const onAddItem = (inputValues) => {
     const newCardData = {
-      id: Date.now(),
+      _id: Date.now(),
       name: inputValues.name,
       imageUrl: inputValues.imageUrl,
       weather: inputValues.weatherType,
@@ -68,7 +68,7 @@ function App() {
   const handleDeleteItem = (id) => {
     deleteItem(id)
       .then(() => {
-        setClothingItems((prev) => prev.filter((i) => i._id !== id)
+        setClothingItems((prev) => prev.filter((i) => i.id !== id)
       );
         setActiveModal("");
       })

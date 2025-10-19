@@ -3,6 +3,7 @@
   align-items: center;
   padding: 32px 0 28px;
   justify-content: space-between;
+  gap: 24px;
 }
 
 .header__logo {
@@ -31,6 +32,9 @@
   letter-spacing: 0;
   font-style: bold;
   font-weight: 700;
+  background: none;
+  margin-left: 12px;
+ word-spacing: 0%;
 }
 
 .header__add-clothes-btn:hover {
