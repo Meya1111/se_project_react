@@ -10,7 +10,7 @@ import Profile from "../Profile/Profile.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import Footer from "../footer/Footer.jsx";
 import "../footer/Footer.css";
-import CurrentTemperatureUnitContext from "../../contexts/currentTemperatureUnit";
+import CurrentTemperatureUnitContext from "../../contexts/currentTemperatureUnit.js";
 import { Routes, Route } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
 import SideBar from "../SideBar/SideBar.jsx";
@@ -53,7 +53,7 @@ function App() {
     addItem(newCardData)
     .then((data) => {
       setClothingItems([...clothingItems, data]);
-      closeActiveModal
+      closeActiveModal();
     })
     .catch(console.error);
   

@@ -2,7 +2,6 @@ import "./Header.css";
 import logo from "../../assets/logo2.svg";
 import defaultAvatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-import "./Header.css";
 import { Link } from "react-router-dom";
 
 function Header({ handleAddClick, weatherData, username, avatar }) {

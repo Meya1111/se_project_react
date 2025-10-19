@@ -3,7 +3,7 @@ import SideBar from "../SideBar/SideBar.jsx";
 import "./Profile.css";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import { useContext } from "react";
-import currentTemperatureUnitContext from "../../contexts/currentTemperatureUnit";
+import currentTemperatureUnitContext from "../../contexts/currentTemperatureUnit.js";
 import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 
 function Profile({
