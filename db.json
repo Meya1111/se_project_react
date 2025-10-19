@@ -92,11 +92,10 @@
       "id": "dc2a"
     },
     {
-      "_id": 16,
-      "name": "T-Shirt",
-      "weather": "hot",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09",
-      "id": "6524"
+      "id": "1f5a",
+      "name": "Coat",
+      "imageUrl": "https://i5.walmartimages.com/seo/Herrnalise-Women-s-Faux-Fur-Coat-Shearling-Fluffy-Fuzzy-Shaggy-Hood-Sherpa-Lined-Fleece-Jacket-Hot-Pink-M_f1e55efd-c6bc-4fd0-b805-2b500faa9a51.180876aed17d0d294aaab58003a2e9f4.jpeg",
+      "weather": "cold"
     }
   ]
 }

@@ -46,20 +46,16 @@ function App() {
     const newCardData = {
       _id: Date.now(),
       name: inputValues.name,
-      imageUrl: inputValues.imageUrl,
+      imageUrl: inputValues.link,
       weather: inputValues.weatherType,
     };
 
     addItem(newCardData)
-    .then((data) => {
-      setClothingItems([...clothingItems, data]);
-      closeActiveModal();
-    })
-    .catch(console.error);
-  
-
-    setClothingItems((prev) => [newCardData, ...prev]);
-    closeActiveModal();
+      .then((data) => {
+        setClothingItems((prev) => [data, ...prev]);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
   const closeActiveModal = () => {
     setActiveModal("");
@@ -68,9 +64,8 @@ function App() {
   const handleDeleteItem = (id) => {
     deleteItem(id)
       .then(() => {
-        setClothingItems((prev) => prev.filter((i) => i.id !== id)
-      );
-        setActiveModal("");
+        setClothingItems((prev) => prev.filter((i) => i.id !== id));
+        closeActiveModal();
       })
       .catch(console.error);
   };
@@ -82,18 +77,17 @@ function App() {
         setWeatherData(filteredData);
       })
       .catch(console.error);
-    
   }, []);
 
-useEffect(()=> {
-  getItems()
-  .then((data) => {
-    setClothingItems(data);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
-}, []);
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        setClothingItems(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   return (
     <CurrentTemperatureUnitContext.Provider
