@@ -23,7 +23,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
       onSubmit={handleSubmit}
       buttonText="Add garment"
     >
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="clothing-name" className="modal__label">
         Name{" "}
         <input
           name="name"
@@ -39,9 +39,8 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
         />
         <span className="modal__error" id="place-name-error" />
       </label>
-      <label className="modal__label">
-        Image{" "}
-        <input
+      <label htmlFor="clothing-link" className="modal__label">Image{" "}</label>
+        <input 
           type="url"
           name="link"
           className="modal__input modal__input_type_url"
@@ -51,12 +50,10 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
           value={values.link}
           onChange={handleChange}
         />
-      </label>
       <fieldset className="modal__fieldset modal__fieldset_type_radio">
         <legend className="modal__legend">Select the weather type:</legend>
-        <div>
+        <div className="modal__radio-option">
           <input
-            className="modal__radio-button"
             id="choiceHot"
             type="radio"
             name="weatherType"
@@ -70,9 +67,8 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             Hot
           </label>
         </div>
-        <div>
+        <div className="modal__radio-option">
           <input
-            className="modal__radio-button"
             id="choiceWarm"
             type="radio"
             name="weatherType"

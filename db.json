@@ -1,13 +1,6 @@
 {
   "items": [
     {
-      "_id": 0,
-      "name": "Beanie",
-      "weather": "cold",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Beanie.png?etag=bc10497cc80fa557f036e94f9999f7b2",
-      "id": "982b"
-    },
-    {
       "_id": 2,
       "name": "Cap",
       "weather": "hot",
@@ -20,20 +13,6 @@
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Dress.png?etag=1f9cd32a311ab139cab43494883720bf",
       "id": "3685"
-    },
-    {
-      "_id": 5,
-      "name": "Hoodie",
-      "weather": "cold",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Hoodie.png?etag=5f52451d0958ccb1016c78a45603a4e8",
-      "id": "8a5b"
-    },
-    {
-      "_id": 6,
-      "name": "Jacket",
-      "weather": "cold",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Jacket.png?etag=f4bb188deaa25ac84ce2338be2d404ad",
-      "id": "26a2"
     },
     {
       "_id": 7,
@@ -92,7 +71,19 @@
       "id": "dc2a"
     },
     {
-      "id": "1f5a",
+      "id": "c707",
+      "name": "Coat",
+      "imageUrl": "https://i5.walmartimages.com/seo/Herrnalise-Women-s-Faux-Fur-Coat-Shearling-Fluffy-Fuzzy-Shaggy-Hood-Sherpa-Lined-Fleece-Jacket-Hot-Pink-M_f1e55efd-c6bc-4fd0-b805-2b500faa9a51.180876aed17d0d294aaab58003a2e9f4.jpeg",
+      "weather": "warm"
+    },
+    {
+      "id": "9592",
+      "name": "Coat",
+      "imageUrl": "https://i5.walmartimages.com/seo/Herrnalise-Women-s-Faux-Fur-Coat-Shearling-Fluffy-Fuzzy-Shaggy-Hood-Sherpa-Lined-Fleece-Jacket-Hot-Pink-M_f1e55efd-c6bc-4fd0-b805-2b500faa9a51.180876aed17d0d294aaab58003a2e9f4.jpeg",
+      "weather": ""
+    },
+    {
+      "id": "5447",
       "name": "Coat",
       "imageUrl": "https://i5.walmartimages.com/seo/Herrnalise-Women-s-Faux-Fur-Coat-Shearling-Fluffy-Fuzzy-Shaggy-Hood-Sherpa-Lined-Fleece-Jacket-Hot-Pink-M_f1e55efd-c6bc-4fd0-b805-2b500faa9a51.180876aed17d0d294aaab58003a2e9f4.jpeg",
       "weather": "cold"

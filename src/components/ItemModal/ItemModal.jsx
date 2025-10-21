@@ -5,7 +5,7 @@ function ItemModal({ onClose, item, isOpen, onDelete }) {
   const handleDelete = (e) => {
     e.preventDefault();
 
-    onDelete(item.id);
+    onDelete(item._id);
   };
 
   return (
