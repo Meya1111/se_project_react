@@ -1,0 +1,49 @@
+import { useForm } from "../../contexts/hooks/useForm";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+
+function LoginModal({ isOpen, onClose, onLogin }) {
+  const defaultValues = { email: "", password: "" };
+  const { values, handleChange, setValues } = useForm(defaultValues);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    onLogin(values).then(() => {
+      setValues(defaultValues);
+    });
+  }
+
+  return (
+    <ModalWithForm
+      title="Sign in"
+      name="login"
+      isOpen={isOpen}
+      onClose={onClose}
+      onSubmit={handleSubmit}
+      buttonText="Log in"
+    >
+      <label className="modal__label">
+        Email
+        <input
+          type="email"
+          name="email"
+          value={values.email}
+          onChange={handleChange}
+          required
+        />
+      </label>
+
+      <label className="modal__label">
+        Password
+        <input
+          type="password"
+          name="password"
+          value={values.password}
+          onChange={handleChange}
+          required
+        />
+      </label>
+    </ModalWithForm>
+  );
+}
+
+export default LoginModal;

@@ -14,18 +14,19 @@ export const getItems = () =>
 export const addItem = ({ name, imageUrl, weather }) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
-    headers,
-    body: JSON.stringify({
-      name,
-      imageUrl,
-      weather,
-    }),
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+    body: JSON.stringify({ name, imageUrl, weather }),
   }).then(handleServerResponse);
 };
 
 export const deleteItem = (itemID) => {
   return fetch(`${baseUrl}/items/${itemID}`, {
     method: "DELETE",
-    headers,
+    headers: {
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
   }).then(handleServerResponse);
 };

@@ -3,7 +3,7 @@ import SideBar from "../SideBar/SideBar.jsx";
 import "./Profile.css";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import { useContext } from "react";
-import currentTemperatureUnitContext from "../../contexts/currentTemperatureUnit.js";
+import currentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.js";
 import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 
 function Profile({
@@ -22,7 +22,7 @@ function Profile({
   return (
     <div className="profile">
       <SideBar />
-       <section className="profile-clothes">
+      <section className="profile-clothes">
         <ClothesSection
           clothingItems={clothingItems}
           onCardClick={onCardClick}
