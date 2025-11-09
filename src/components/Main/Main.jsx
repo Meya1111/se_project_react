@@ -4,12 +4,14 @@ import ItemCard from "../ItemCard/ItemCard";
 import { useContext } from "react";
 import currentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.js";
 
-function Main({ weatherData, clothingItems, onCardClick }) {
+export default function Main({ weatherData, clothingItems, onCardClick }) {
+  console.log(clothingItems);
+  console.log("here", weatherData);
   const { currentTemperatureUnit } = useContext(currentTemperatureUnitContext);
   const displayTemp =
     currentTemperatureUnit === "F"
-      ? `${Math.round(weatherData.temp.F)} °F`
-      : `${Math.round(weatherData.temp.C)} °C`;
+      ? `${Math.round(weatherData?.temp?.F)} °F`
+      : `${Math.round(weatherData?.temp?.C)} °C`;
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
@@ -37,5 +39,3 @@ function Main({ weatherData, clothingItems, onCardClick }) {
     </main>
   );
 }
-
-export default Main;
