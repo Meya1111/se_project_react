@@ -20,6 +20,7 @@ import LoginModal from "../LoginModal/LoginModal.jsx";
 import { signup, signin, checkToken } from "../../utils/auth.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
+import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx"
 
 function App() {
   const [clothingItems, setClothingItems] = useState([]);

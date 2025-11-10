@@ -5,8 +5,6 @@ import { useContext } from "react";
 import currentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.js";
 
 export default function Main({ weatherData, clothingItems, onCardClick }) {
-  console.log(clothingItems);
-  console.log("here", weatherData);
   const { currentTemperatureUnit } = useContext(currentTemperatureUnitContext);
   const displayTemp =
     currentTemperatureUnit === "F"

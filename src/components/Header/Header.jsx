@@ -6,13 +6,16 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Header({ handleAddClick, weatherData, username, avatar }) {
+function Header({ handleAddClick, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
-
   const currentUser = useContext(CurrentUserContext);
+  const name = currentUser?.name || "";
+  const avatarUrl =
+    currentUser?.avatar && currentUser.avatar.length ? currentUser.avatar : "";
+  const userInitial = (name.trim()[0] || "").toUpperCase();
 
   return (
     <header className="header">
@@ -37,16 +40,16 @@ function Header({ handleAddClick, weatherData, username, avatar }) {
           <li>
             <Link to="/profile" className="header__link">
               <div className="header__profile">
-                <div className="header__username">{username}</div>
-                {avatar ? (
+                <div className="header__username">{name}</div>
+                {avatarUrl ? (
                   <img
                     className="header__avatar"
-                    src={avatar || defaultAvatar}
+                    src={avatarUrl}
                     alt="user avatar"
                   />
                 ) : (
                   <span className="header__avatar header__avatar_none">
-                    {username?.toUpperCase().charAt(0) || ""}
+                    {userInitial}
                   </span>
                 )}
               </div>
