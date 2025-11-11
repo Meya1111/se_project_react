@@ -14,13 +14,15 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import { Routes, Route } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
 import SideBar from "../SideBar/SideBar.jsx";
-import { getItems, addItem, deleteItem } from "../../utils/api.js";
+import { getItems, addItem, deleteItem, addCardLike, removeCardLike } from "../../utils/api.js";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import { signup, signin, checkToken } from "../../utils/auth.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
-import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx"
+import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
+import { updateUser } from "../../utils/api.js";
+
 
 function App() {
   const [clothingItems, setClothingItems] = useState([]);
@@ -38,8 +40,17 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
   const openRegister = () => setActiveModal("register");
   const openLogin = () => setActiveModal("login");
+  const closeAllModals = () => {
+    setActiveModal("");
+    setSelectedCard({});
+    setIsEditProfileOpen(false);
+  };
+  const handleEditProfileClick = () => {
+    setIsEditProfileOpen(true);
+  };
 
   const handleRegister = (formValues) => {
     return signup(formValues)
@@ -103,12 +114,43 @@ function App() {
   };
   const closeActiveModal = () => {
     setActiveModal("");
+    setSelectedCard({});
+    setIsEditProfileOpen(false);
   };
 
   const handleDeleteItem = (id) => {
     deleteItem(id)
       .then(() => {
         setClothingItems((prev) => prev.filter((i) => i._id !== id));
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
+
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+  
+    if (!isLiked) {
+      addCardLike(id, token).then((updatedCard) => {
+        setClothingItems((cards) =>
+          cards.map((item) => (item._id === id ? updatedCard : item))
+        );
+      })
+      .catch((err) => console.log(err));
+    } else {
+      removeCardLike(id, token).then((updatedCard) => {
+        setClothingItems((cards) =>
+          cards.map((item) => (item._id === id ? updatedCard : item))
+        );
+      })
+      .catch((err) => console.log(err));
+    }
+  };
+
+  const handleUpdateUser = ({ name, avatar }) => {
+    updateUser({ name, avatar })
+      .then((updatedUser) => {
+        setCurrentUser(updatedUser);
         closeActiveModal();
       })
       .catch(console.error);
@@ -168,6 +210,7 @@ function App() {
                   <Main
                     weatherData={weatherData}
                     clothingItems={clothingItems}
+                    onCardLike={handleCardLike}
                     onCardClick={handleCardClick}
                   />
                 }
@@ -206,6 +249,13 @@ function App() {
           item={selectedCard}
           onDelete={handleDeleteItem}
         ></ItemModal>
+
+        <EditProfileModal
+          isOpen={isEditProfileOpen}
+          onClose={closeActiveModal}
+          onSubmit={handleUpdateUser}
+        />
+
         <RegisterModal
           isOpen={activeModal === "register"}
           onClose={() => setActiveModal("")}
