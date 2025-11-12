@@ -14,7 +14,13 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import { Routes, Route } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
 import SideBar from "../SideBar/SideBar.jsx";
-import { getItems, addItem, deleteItem, addCardLike, removeCardLike } from "../../utils/api.js";
+import {
+  getItems,
+  addItem,
+  deleteItem,
+  addCardLike,
+  removeCardLike,
+} from "../../utils/api.js";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import { signup, signin, checkToken } from "../../utils/auth.js";
@@ -22,7 +28,6 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
 import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 import { updateUser } from "../../utils/api.js";
-
 
 function App() {
   const [clothingItems, setClothingItems] = useState([]);
@@ -129,21 +134,23 @@ function App() {
 
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
-  
+
     if (!isLiked) {
-      addCardLike(id, token).then((updatedCard) => {
-        setClothingItems((cards) =>
-          cards.map((item) => (item._id === id ? updatedCard : item))
-        );
-      })
-      .catch((err) => console.log(err));
+      addCardLike(id, token)
+        .then((updatedCard) => {
+          setClothingItems((cards) =>
+            cards.map((item) => (item._id === id ? updatedCard : item))
+          );
+        })
+        .catch((err) => console.log(err));
     } else {
-      removeCardLike(id, token).then((updatedCard) => {
-        setClothingItems((cards) =>
-          cards.map((item) => (item._id === id ? updatedCard : item))
-        );
-      })
-      .catch((err) => console.log(err));
+      removeCardLike(id, token)
+        .then((updatedCard) => {
+          setClothingItems((cards) =>
+            cards.map((item) => (item._id === id ? updatedCard : item))
+          );
+        })
+        .catch((err) => console.log(err));
     }
   };
 
@@ -155,6 +162,11 @@ function App() {
       })
       .catch(console.error);
   };
+
+  function handleSignOut() {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+  }
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
@@ -230,6 +242,7 @@ function App() {
                         avatar={avatar}
                         clothingItems={clothingItems}
                         onAddClick={handleAddClick}
+                        onSignOut={handleSignOut}
                       />
                     </div>
                   </ProtectedRoute>

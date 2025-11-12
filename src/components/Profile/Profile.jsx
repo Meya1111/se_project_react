@@ -14,6 +14,7 @@ function Profile({
   onAddClick,
   weatherData,
   onEditProfile,
+  onSignOut,
 }) {
   const currentTemperatureUnit = useContext(currentTemperatureUnitContext);
   const displayTemp =
@@ -32,6 +33,9 @@ function Profile({
           onClick={onEditProfile}
         >
           Edit profile
+        </button>
+        <button className="profile__logout" type="button" onClick={onSignOut}>
+          Sign out
         </button>
       </div>
       <section className="profile-clothes">
