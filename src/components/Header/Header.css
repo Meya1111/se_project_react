@@ -94,3 +94,17 @@
 .header__profile {
   display: flex;
 }
+
+.header__signup {
+border: none;
+background: transparent;
+font-weight: 500;
+color: #000000;
+}
+
+.header__login {
+border: none;
+background: transparent;
+font-weight: 500;
+color: #000000;
+}
