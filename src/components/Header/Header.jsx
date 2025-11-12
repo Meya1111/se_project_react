@@ -6,7 +6,16 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({
+  handleAddClick,
+  weatherData,
+  username,
+  avatar,
+  isLoggedIn,
+  onLoginClick,
+  onRegisterClick,
+  onSignOut,
+}) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -28,33 +37,66 @@ function Header({ handleAddClick, weatherData }) {
       <nav className="navigation">
         <ul className="navgiation__container">
           <ToggleSwitch />
-          <li>
-            <button
-              onClick={handleAddClick}
-              type="button"
-              className="header__add-clothes-btn"
-            >
-              + Add clothes
-            </button>
-          </li>
-          <li>
-            <Link to="/profile" className="header__link">
-              <div className="header__profile">
-                <div className="header__username">{name}</div>
-                {avatarUrl ? (
-                  <img
-                    className="header__avatar"
-                    src={avatarUrl}
-                    alt="user avatar"
-                  />
-                ) : (
-                  <span className="header__avatar header__avatar_none">
-                    {userInitial}
-                  </span>
-                )}
-              </div>
-            </Link>
-          </li>
+
+          {!isLoggedIn ? (
+            <li className="header__auth">
+              <button
+                type="button"
+                className="header__signup"
+                onClick={onRegisterClick}
+              >
+                Sign Up
+              </button>
+              <button
+                type="button"
+                className="header__login"
+                onClick={onLoginClick}
+              >
+                Log In
+              </button>
+            </li>
+          ) : (
+            <>
+              <li>
+                <button
+                  onClick={handleAddClick}
+                  type="button"
+                  className="header__add-clothes-btn"
+                >
+                  + Add clothes
+                </button>
+              </li>
+
+              <li>
+                <Link to="/profile" className="header__link">
+                  <div className="header__profile">
+                    <div className="header__username">{username}</div>
+                    {avatar ? (
+                      <img
+                        className="header__avatar"
+                        src={avatar}
+                        alt="user avatar"
+                      />
+                    ) : (
+                      <span className="header__avatar header__avatar_none">
+                        {(username?.trim()?.[0] || "").toUpperCase()}
+                      </span>
+                    )}
+                  </div>
+                </Link>
+              </li>
+
+              <li>
+                <button
+                  className="header__logout"
+                  type="button"
+                  onClick={onSignOut}
+                >
+                  Sign out
+                </button>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </header>

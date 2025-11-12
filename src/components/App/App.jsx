@@ -212,8 +212,12 @@ function App() {
             <Header
               handleAddClick={handleAddClick}
               weatherData={weatherData}
-              username="Terrence Tegegne"
+              username="Terrence Teggene"
               avatar={avatar}
+              isLoggedIn={isLoggedIn}
+              onLoginClick={() => setActiveModal("login")}
+              onRegisterClick={() => setActiveModal("register")}
+              onSignOut={handleSignOut}
             />
             <Routes>
               <Route
