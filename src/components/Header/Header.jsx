@@ -1,6 +1,5 @@
 import "./Header.css";
 import logo from "../../assets/logo2.svg";
-import defaultAvatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -9,8 +8,6 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 function Header({
   handleAddClick,
   weatherData,
-  username,
-  avatar,
   isLoggedIn,
   onLoginClick,
   onRegisterClick,
@@ -70,16 +67,17 @@ function Header({
               <li>
                 <Link to="/profile" className="header__link">
                   <div className="header__profile">
-                    <div className="header__username">{username}</div>
-                    {avatar ? (
+                    <div className="header__username">{currentUser.name}</div>
+
+                    {currentUser.avatar ? (
                       <img
                         className="header__avatar"
-                        src={avatar}
+                        src={currentUser.avatar}
                         alt="user avatar"
                       />
                     ) : (
                       <span className="header__avatar header__avatar_none">
-                        {(username?.trim()?.[0] || "").toUpperCase()}
+                        {(currentUser.name?.trim()?.[0] || "").toUpperCase()}
                       </span>
                     )}
                   </div>

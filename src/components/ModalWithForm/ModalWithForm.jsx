@@ -1,6 +1,5 @@
 import "./ModalWithForm.css";
 import closeIcon from "../../assets/closebtn2.png";
-import { useState } from "react";
 
 function ModalWithForm({
   title,

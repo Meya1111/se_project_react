@@ -47,26 +47,17 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
   const openRegister = () => setActiveModal("register");
-  const openLogin = () => setActiveModal("login");
   const closeAllModals = () => {
     setActiveModal("");
     setSelectedCard({});
     setIsEditProfileOpen(false);
   };
-  const handleEditProfileClick = () => {
-    setIsEditProfileOpen(true);
-  };
 
   const handleRegister = (formValues) => {
     return signup(formValues)
-      .then(() => {
-        setActiveModal("");
-
-        setActiveModal("login");
-      })
+      .then(() => handleLogin(formValues))
       .catch(console.error);
   };
-
   const handleLogin = (formValues) => {
     return signin(formValues)
       .then((res) => {
@@ -132,6 +123,10 @@ function App() {
       .catch(console.error);
   };
 
+  function handleEditProfileModal() {
+    setIsEditProfileOpen(true);
+  }
+
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
 
@@ -170,7 +165,15 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
-    if (!token) return;
+    if (!token) {
+      setIsLoggedIn(false);
+      setCurrentUser(null);
+      setIsLoggedInLoading(false);
+      return;
+    }
+
+    setIsLoggedInLoading(true);
+
     checkToken(token)
       .then((user) => {
         setCurrentUser(user);
@@ -180,6 +183,9 @@ function App() {
         setIsLoggedIn(false);
         setCurrentUser(null);
         localStorage.removeItem("jwt");
+      })
+      .finally(() => {
+        setIsLoggedInLoading(false);
       });
   }, []);
 
@@ -242,11 +248,13 @@ function App() {
                       <SideBar username="Terrence Tegegne" avatar={avatar} />
                       <Profile
                         onCardClick={handleCardClick}
+                        onCardLike={handleCardLike}
                         username="Terrence Tegegne"
                         avatar={avatar}
                         clothingItems={clothingItems}
                         onAddClick={handleAddClick}
                         onSignOut={handleSignOut}
+                        onEditProfile={handleEditProfileModal}
                       />
                     </div>
                   </ProtectedRoute>
@@ -275,13 +283,13 @@ function App() {
 
         <RegisterModal
           isOpen={activeModal === "register"}
-          onClose={() => setActiveModal("")}
+          onClose={closeActiveModal}
           onRegister={handleRegister}
         />
 
         <LoginModal
           isOpen={activeModal === "login"}
-          onClose={() => setActiveModal("")}
+          onClose={closeActiveModal}
           onLogin={handleLogin}
         />
         <Footer />

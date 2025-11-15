@@ -49,7 +49,7 @@ export const addCardLike = (id, token) => {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
-  }).then(checkResponse); 
+  }).then(handleServerResponse);
 };
 
 export const removeCardLike = (id, token) => {
@@ -59,5 +59,5 @@ export const removeCardLike = (id, token) => {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
-  }).then(checkResponse); 
+  }).then(handleServerResponse);
 };
