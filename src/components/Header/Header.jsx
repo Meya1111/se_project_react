@@ -25,12 +25,14 @@ function Header({
 
   return (
     <header className="header">
+      <div className="header__logo-container" >
       <Link to="/">
         <img className="header__logo" src={logo} alt="WTWR logo" />
       </Link>
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
+      </div>
       <nav className="navigation">
         <ul className="navgiation__container">
           <ToggleSwitch />

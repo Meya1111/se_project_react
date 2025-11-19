@@ -24,6 +24,7 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
       <label className="modal__label">
         Name
         <input
+          className="modal__input"
           type="text"
           name="name"
           value={values.name}
@@ -35,6 +36,7 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
       <label className="modal__label">
         Avatar URL
         <input
+          className="modal__input"
           type="url"
           name="avatar"
           value={values.avatar}
@@ -46,6 +48,7 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
       <label className="modal__label">
         Email
         <input
+          className="modal__input"
           type="email"
           name="email"
           value={values.email}
@@ -57,6 +60,7 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
       <label className="modal__label">
         Password
         <input
+          className="modal__input"
           type="password"
           name="password"
           value={values.password}

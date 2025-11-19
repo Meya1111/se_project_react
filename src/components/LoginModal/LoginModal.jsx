@@ -24,6 +24,7 @@ function LoginModal({ isOpen, onClose, onLogin }) {
       <label className="modal__label">
         Email
         <input
+         className="modal__input"
           type="email"
           name="email"
           value={values.email}
@@ -35,6 +36,7 @@ function LoginModal({ isOpen, onClose, onLogin }) {
       <label className="modal__label">
         Password
         <input
+        className="modal__input"
           type="password"
           name="password"
           value={values.password}
