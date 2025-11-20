@@ -115,3 +115,7 @@ margin: auto;
   display: flex;
   gap: 10px;
 }
+
+.header__logout {
+  border: none;
+}

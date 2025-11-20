@@ -31,3 +31,24 @@
   border-radius: 16px;
   border: 1px solid #0000004D;
 }
+
+.card__like-button {
+  width: 20px;
+  height: 18px;
+  background: url("../../../src/assets/heartlikebtn.svg") center/contain no-repeat;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+.card__like-button_active {
+  background: url("../../assets/likebtnactive.svg") center/contain no-repeat;
+}
+
+.card__name-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
