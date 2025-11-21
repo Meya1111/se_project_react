@@ -18,11 +18,11 @@ function ModalWithForm({
           {" "}
           <img src={closeIcon} alt="Close" />{" "}
         </button>
-        <h3 className="modal__title">{title}</h3>
+        <h3 className="modal__title">Change profile data</h3>
         <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
           <button type="submit" className="button modal__submit">
-            {buttonText}
+           Save changes
           </button>
         </form>
       </div>

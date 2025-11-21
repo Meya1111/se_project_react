@@ -18,20 +18,19 @@ function Header({
     day: "numeric",
   });
   const currentUser = useContext(CurrentUserContext);
-  const name = currentUser?.name || "";
-  const avatarUrl =
-    currentUser?.avatar && currentUser.avatar.length ? currentUser.avatar : "";
-  const userInitial = (name.trim()[0] || "").toUpperCase();
+  const username = currentUser?.name || "";
+  const avatarUrl = currentUser?.avatar || "";
+  const userInitial = username ? username.trim()[0].toUpperCase() : "";
 
   return (
     <header className="header">
-      <div className="header__logo-container" >
-      <Link to="/">
-        <img className="header__logo" src={logo} alt="WTWR logo" />
-      </Link>
-      <p className="header__date-and-location">
-        {currentDate}, {weatherData.city}
-      </p>
+      <div className="header__logo-container">
+        <Link to="/">
+          <img className="header__logo" src={logo} alt="WTWR logo" />
+        </Link>
+        <p className="header__date-and-location">
+          {currentDate}, {weatherData.city}
+        </p>
       </div>
       <nav className="navigation">
         <ul className="navgiation__container">

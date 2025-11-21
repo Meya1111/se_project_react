@@ -11,6 +11,7 @@ function Profile({
   avatar,
   clothingItems,
   onCardClick,
+  onCardLike,
   onAddClick,
   weatherData,
   onEditProfile,
@@ -32,16 +33,28 @@ function Profile({
           className="profile__edit-btn"
           onClick={onEditProfile}
         >
-          Edit profile
+          Change profile data
         </button>
         <button className="profile__logout" type="button" onClick={onSignOut}>
-          Sign out
+          Log out
         </button>
       </div>
       <section className="profile-clothes">
+        <div className="profile__clothes-header">
+          <h2 className="profile__title">Your items</h2>
+          <button
+            type="button"
+            className="profile__add-btn"
+            onClick={onAddClick}
+          >
+            + Add new
+          </button>
+        </div>
+
         <ClothesSection
           clothingItems={clothingItems}
           onCardClick={onCardClick}
+          onCardLike={onCardLike}
           onAddClick={onAddClick}
           weatherData={weatherData}
         />
