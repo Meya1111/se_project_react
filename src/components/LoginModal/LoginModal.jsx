@@ -24,6 +24,7 @@ function LoginModal({ isOpen, onClose, onLogin, onRegisterClick }) {
 
   return (
     <ModalWithForm
+    title="Log in"
     name="login"
     isOpen={isOpen}
     onClose={onClose}

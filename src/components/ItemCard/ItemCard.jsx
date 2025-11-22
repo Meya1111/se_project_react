@@ -33,7 +33,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
           }`}
           onClick={handleLike}
           aria-label={isLiked ? "Unlike" : "Like"}
-        ></button>
+        />
       )}
     </li>
   );

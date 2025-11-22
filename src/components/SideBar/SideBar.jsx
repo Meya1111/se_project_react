@@ -2,7 +2,7 @@ import "./SideBar.css";
 
 function SideBar({ username, avatar, onEditProfile, onSignOut }) {
   return (
-    <div className="profile__header">
+     <div className="profile__header">
       <img className="profile__avatar" src={avatar} alt="user avatar" />
       <h2 className="profile__name">{username}</h2>
 
@@ -11,7 +11,7 @@ function SideBar({ username, avatar, onEditProfile, onSignOut }) {
         className="profile__edit-btn"
         onClick={onEditProfile}
       >
-        Log in
+        Change profile data
       </button>
 
       <button

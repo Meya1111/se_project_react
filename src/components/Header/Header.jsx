@@ -84,16 +84,6 @@ function Header({
                   </div>
                 </Link>
               </li>
-
-              <li>
-                <button
-                  className="header__logout"
-                  type="button"
-                  onClick={onSignOut}
-                >
-                  Sign out
-                </button>
-              </li>
             </>
           )}
         </ul>
