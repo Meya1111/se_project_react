@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import "./App.css";
 import { coordinates, apiKey } from "../../utils/constants.js";
@@ -47,6 +47,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
   const openRegister = () => setActiveModal("register");
+  
   const closeAllModals = () => {
     setActiveModal("");
     setSelectedCard({});
@@ -58,7 +59,7 @@ function App() {
       .then(() => handleLogin(formValues))
       .catch(console.error);
   };
-  const handleLogin = (formValues) => {
+  const handleLogin = useCallback((formValues) => {
     return signin(formValues)
       .then((res) => {
         if (res && res.token) {
@@ -71,7 +72,7 @@ function App() {
       .finally(() => {
         setIsLoggedInLoading(false);
       });
-  };
+  },[]);
 
   const handleLogout = () => {
     localStorage.removeItem("jwt");
@@ -176,6 +177,7 @@ function App() {
 
     checkToken(token)
       .then((user) => {
+        console.log(user)
         setCurrentUser(user);
         setIsLoggedIn(true);
       })

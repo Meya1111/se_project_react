@@ -7,7 +7,7 @@ function ClothesSection({ clothingItems, onCardClick, onAddClick }) {
   const currentUser = useContext(CurrentUserContext);
 
   const userItems = clothingItems.filter(
-    (item) => item.owner === currentUser._id
+    (item) => item.owner === currentUser?._id
   );
 
   return (

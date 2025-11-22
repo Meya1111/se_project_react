@@ -18,6 +18,7 @@ function Header({
     day: "numeric",
   });
   const currentUser = useContext(CurrentUserContext);
+
   const username = currentUser?.name || "";
   const avatarUrl = currentUser?.avatar || "";
   const userInitial = username ? username.trim()[0].toUpperCase() : "";
@@ -29,7 +30,7 @@ function Header({
           <img className="header__logo" src={logo} alt="WTWR logo" />
         </Link>
         <p className="header__date-and-location">
-          {currentDate}, {weatherData.city}
+          {currentDate}, {weatherData?.city}
         </p>
       </div>
       <nav className="navigation">
@@ -68,17 +69,17 @@ function Header({
               <li>
                 <Link to="/profile" className="header__link">
                   <div className="header__profile">
-                    <div className="header__username">{currentUser?.name || ""}</div>
+                    <div className="header__username">{username || ""}</div>
 
-                    {currentUser?.avatar ? (
+                    {avatarUrl ? (
                       <img
                         className="header__avatar"
-                        src={currentUser.avatar}
+                        src={avatarUrl}
                         alt="user avatar"
                       />
                     ) : (
                       <span className="header__avatar header__avatar_none">
-                        {(currentUser?.name?.trim()?.[0] || "").toUpperCase()}
+                        {userInitial}
                       </span>
                     )}
                   </div>
