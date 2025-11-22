@@ -245,7 +245,6 @@ function App() {
                     isLoggedInLoading={isLoggedInLoading}
                   >
                     <div className="profile-page">
-                      <SideBar username="Terrence Tegegne" avatar={avatar} />
                       <Profile
                         onCardClick={handleCardClick}
                         onCardLike={handleCardLike}

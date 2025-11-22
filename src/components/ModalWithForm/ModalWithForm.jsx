@@ -19,11 +19,11 @@ function ModalWithForm({
           {" "}
           <img src={closeIcon} alt="Close" />{" "}
         </button>
-        <h3 className="modal__title">Sign Up</h3>
+        <h3 className="modal__title">Log In</h3>
         <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
           <div className="modal__buttons">
-            <button type="submit" className="button modal__submit">
+            <button type="submit" className="button modal__submit" >
               {buttonText}
             </button>
             {altText && (

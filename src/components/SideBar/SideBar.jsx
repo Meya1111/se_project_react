@@ -1,18 +1,26 @@
 import "./SideBar.css";
 
-function SideBar({ username, avatar: userAvatar }) {
+function SideBar({ username, avatar, onEditProfile, onSignOut }) {
   return (
-    <div className="sidebar">
-      <div className="sidebar__avatar-container">
-        {userAvatar && (
-          <img
-            src={userAvatar}
-            alt={`${username}'s avatar`}
-            className="sidebar__avatar"
-          />
-        )}
-        <p className="sidebar__username">{username}</p>
-      </div>
+    <div className="profile__header">
+      <img className="profile__avatar" src={avatar} alt="user avatar" />
+      <h2 className="profile__name">{username}</h2>
+
+      <button
+        type="button"
+        className="profile__edit-btn"
+        onClick={onEditProfile}
+      >
+        Log in
+      </button>
+
+      <button
+        className="profile__logout"
+        type="button"
+        onClick={onSignOut}
+      >
+        Log out
+      </button>
     </div>
   );
 }
