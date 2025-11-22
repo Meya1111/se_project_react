@@ -33,7 +33,7 @@ function Profile({
           className="profile__edit-btn"
           onClick={onEditProfile}
         >
-          Change profile data
+          Log In
         </button>
         <button className="profile__logout" type="button" onClick={onSignOut}>
           Log out

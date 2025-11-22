@@ -2,13 +2,14 @@ import "./ModalWithForm.css";
 import closeIcon from "../../assets/closebtn2.png";
 
 function ModalWithForm({
-  title,
   name,
   isOpen,
   onClose,
   onSubmit,
   children,
   buttonText = "Save",
+  altText,
+  onAltClick,
 }) {
   if (!isOpen) return null;
   return (
@@ -18,12 +19,23 @@ function ModalWithForm({
           {" "}
           <img src={closeIcon} alt="Close" />{" "}
         </button>
-        <h3 className="modal__title">Change profile data</h3>
+        <h3 className="modal__title">Sign Up</h3>
         <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
-          <button type="submit" className="button modal__submit">
-           Save changes
-          </button>
+          <div className="modal__buttons">
+            <button type="submit" className="button modal__submit">
+              {buttonText}
+            </button>
+            {altText && (
+              <button
+                type="button"
+                className="button modal__alt"
+                onClick={onAltClick}
+              >
+                {altText}
+              </button>
+            )}
+          </div>
         </form>
       </div>
     </div>

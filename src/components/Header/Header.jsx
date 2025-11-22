@@ -68,9 +68,9 @@ function Header({
               <li>
                 <Link to="/profile" className="header__link">
                   <div className="header__profile">
-                    <div className="header__username">{currentUser.name}</div>
+                    <div className="header__username">{currentUser?.name || ""}</div>
 
-                    {currentUser.avatar ? (
+                    {currentUser?.avatar ? (
                       <img
                         className="header__avatar"
                         src={currentUser.avatar}
@@ -78,7 +78,7 @@ function Header({
                       />
                     ) : (
                       <span className="header__avatar header__avatar_none">
-                        {(currentUser.name?.trim()?.[0] || "").toUpperCase()}
+                        {(currentUser?.name?.trim()?.[0] || "").toUpperCase()}
                       </span>
                     )}
                   </div>
