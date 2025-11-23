@@ -43,6 +43,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [currentUser, setCurrentUser] = useState(null);
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
@@ -60,25 +61,37 @@ function App() {
       .catch(console.error);
   };
   const handleLogin = useCallback((formValues) => {
+    setIsLoading(true);
     return signin(formValues)
       .then((res) => {
         if (res && res.token) {
           localStorage.setItem("jwt", res.token);
-          setIsLoggedIn(true);
         }
-        setActiveModal("");
+        closeActiveModal();  
+
+        checkToken(res.token)  
+          .then((user) => {
+            setCurrentUser(user);
+            setIsLoggedIn(true);
+          })
+          .catch(() => {
+            setIsLoggedIn(false);
+            setCurrentUser(null);
+            localStorage.removeItem("jwt");
+          });
       })
       .catch(console.error)
       .finally(() => {
+        setIsLoading(false);
         setIsLoggedInLoading(false);
       });
-  },[]);
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
     setCurrentUser(null);
-    setActiveModal("");
+    closeActiveModal("");
   };
 
   const handleToggleSwitchChange = () => {
@@ -177,7 +190,6 @@ function App() {
 
     checkToken(token)
       .then((user) => {
-        console.log(user)
         setCurrentUser(user);
         setIsLoggedIn(true);
       })

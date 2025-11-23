@@ -23,7 +23,7 @@ function RegisterModal({ isOpen, onClose, onRegister, onLoginClick }) {
 
   return (
     <ModalWithForm
-      name="signup"
+      name=""
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleRegisterSubmit}
