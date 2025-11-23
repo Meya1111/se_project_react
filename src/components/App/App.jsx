@@ -48,7 +48,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
   const openRegister = () => setActiveModal("register");
-  
+
   const closeAllModals = () => {
     setActiveModal("");
     setSelectedCard({});
@@ -67,9 +67,9 @@ function App() {
         if (res && res.token) {
           localStorage.setItem("jwt", res.token);
         }
-        closeActiveModal();  
+        closeActiveModal();
 
-        checkToken(res.token)  
+        checkToken(res.token)
           .then((user) => {
             setCurrentUser(user);
             setIsLoggedIn(true);
@@ -106,6 +106,33 @@ function App() {
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
+
+  function handleSubmit(request) {
+    setIsLoading(true);
+    request()
+      .then(handleCloseModal)
+
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
+  }
+
+  const handleAddItem = (item) => {
+    const makeRequest = () => {
+      return addNewItem(item).then((item) => {
+        setClothingItems([item, ...clothingItems]);
+      });
+    };
+
+    handleSubmit(makeRequest);
+  };
+
+  function handleProfileFormSubmit(inputValues) {
+    function makeRequest() {
+      return api.editProfile(inputValues).then(setCurrentUser);
+    }
+
+    handleSubmit(makeRequest);
+  }
 
   const onAddItem = (inputValues) => {
     const newCardData = {
