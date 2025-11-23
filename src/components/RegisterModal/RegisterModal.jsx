@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function RegisterModal({ isOpen, onClose, onRegister, onLoginClick }) {
   const defaultValues = { name: "", avatar: "", email: "", password: "" };
-  const { values, handleChange, setValues } = useForm(defaultValues);
+  const { values, handleChange } = useForm(defaultValues);
 
   function handleRegisterSubmit(e) {
     e.preventDefault();
@@ -23,7 +23,8 @@ function RegisterModal({ isOpen, onClose, onRegister, onLoginClick }) {
 
   return (
     <ModalWithForm
-      name=""
+    title="Sign up"
+      name="register"
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleRegisterSubmit}

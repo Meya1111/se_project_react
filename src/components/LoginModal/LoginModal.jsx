@@ -1,63 +1,61 @@
-import { useForm } from "../../contexts/hooks/useForm";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+ import { useForm } from "../../contexts/hooks/useForm";
+  import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function LoginModal({ isOpen, onClose, onLogin, onRegisterClick }) {
-  const defaultValues = { email: "", password: "" };
-  const { values, handleChange, setValues } = useForm(defaultValues);
+  function LoginModal({ isOpen, onClose, onLogin, onRegisterClick }) {
+    const defaultValues = { email: "", password: "" };
+    const { values, handleChange } = useForm(defaultValues); // removed setValues
 
-  function handleLoginSubmit(e) {
-    e.preventDefault();
+    function handleLoginSubmit(e) {
+      e.preventDefault();
      if (onLogin) {
-      onLogin(values);
+       onLogin(values);
      }
-   
-  }
-  
-  function handleOpenRegisterModal() {
-    if (onClose) {
-      onClose();
+   }
+
+   function handleOpenRegisterModal() {
+   if (onClose) {
+       onClose();          // close login modal
     }
-    if (onRegisterClick) {
-      onRegisterClick();
-    }
-  }
+     if (onRegisterClick) {
+     }
+   }
 
   return (
-    <ModalWithForm
-    title="Log in"
-    name="login"
-    isOpen={isOpen}
-    onClose={onClose}
+     <ModalWithForm
+      title="Log in"
+      name="login"
+       isOpen={isOpen}
+      onClose={onClose}
     onSubmit={handleLoginSubmit}
-    buttonText="Log In"
-    altText="or Sign Up"
-    onAltClick={handleOpenRegisterModal}  
+  buttonText="Log In"          // main button
+      altText="or Sign Up"         // text under the main button
+      onAltClick={handleOpenRegisterModal} // alt button opens Sign Up
   >
       <label className="modal__label">
         Email
-        <input
-         className="modal__input"
-          type="email"
+     <input
+          className="modal__input"
+         type="email"
           name="email"
-          value={values.email}
+         value={values.email}
           onChange={handleChange}
-          required
+           required
         />
       </label>
 
       <label className="modal__label">
         Password
         <input
-        className="modal__input"
+           className="modal__input"
           type="password"
           name="password"
-          value={values.password}
+        value={values.password}
           onChange={handleChange}
-          required
-        />
+        required
+       />
       </label>
     </ModalWithForm>
   );
 }
 
-export default LoginModal;
+ export default LoginModal;
