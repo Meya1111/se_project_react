@@ -30,12 +30,13 @@
    width: 100%; 
   border-radius: 16px;
   border: 1px solid #0000004D;
-  max-height: 323px;
+  height: 323px;
+  object-fit: cover;
 }
 
 .card__like-button {
   width: 20px;
-  height: 18px;
+  height: 20px;
   background: url("../../../src/assets/heartlikebtn.svg") center/contain no-repeat;
   border: none;
   cursor: pointer;
