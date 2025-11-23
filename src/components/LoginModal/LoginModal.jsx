@@ -3,7 +3,7 @@
 
   function LoginModal({ isOpen, onClose, onLogin, onRegisterClick }) {
     const defaultValues = { email: "", password: "" };
-    const { values, handleChange } = useForm(defaultValues); // removed setValues
+    const { values, handleChange } = useForm(defaultValues); 
 
     function handleLoginSubmit(e) {
       e.preventDefault();
@@ -14,9 +14,10 @@
 
    function handleOpenRegisterModal() {
    if (onClose) {
-       onClose();          // close login modal
+       onClose();         
     }
      if (onRegisterClick) {
+      onRegisterClick();
      }
    }
 
@@ -27,9 +28,9 @@
        isOpen={isOpen}
       onClose={onClose}
     onSubmit={handleLoginSubmit}
-  buttonText="Log In"          // main button
-      altText="or Sign Up"         // text under the main button
-      onAltClick={handleOpenRegisterModal} // alt button opens Sign Up
+  buttonText="Log In"         
+      altText="or Sign Up"       
+      onAltClick={handleOpenRegisterModal} 
   >
       <label className="modal__label">
         Email

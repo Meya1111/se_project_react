@@ -325,12 +325,14 @@ function App() {
           isOpen={activeModal === "register"}
           onClose={closeActiveModal}
           onRegister={handleRegister}
+          onLoginClick={() => setActiveModal("login")}
         />
 
         <LoginModal
           isOpen={activeModal === "login"}
           onClose={closeActiveModal}
           onLogin={handleLogin}
+          onRegisterClick={() => setActiveModal("register")}
         />
         <Footer />
       </div>
