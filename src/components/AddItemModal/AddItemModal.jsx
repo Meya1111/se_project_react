@@ -39,17 +39,19 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
         />
         <span className="modal__error" id="place-name-error" />
       </label>
-      <label htmlFor="clothing-link" className="modal__label">Image{" "}</label>
-        <input 
-          type="url"
-          name="link"
-          className="modal__input modal__input_type_url"
-          id="clothing-link"
-          placeholder="Image URL"
-          required
-          value={values.link}
-          onChange={handleChange}
-        />
+      <label htmlFor="clothing-link" className="modal__label">
+        Image{" "}
+      </label>
+      <input
+        type="url"
+        name="link"
+        className="modal__input modal__input_type_url"
+        id="clothing-link"
+        placeholder="Image URL"
+        required
+        value={values.link}
+        onChange={handleChange}
+      />
       <fieldset className="modal__fieldset modal__fieldset_type_radio">
         <legend className="modal__legend">Select the weather type:</legend>
         <div className="modal__radio-option">

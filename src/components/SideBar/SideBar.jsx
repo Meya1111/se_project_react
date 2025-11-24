@@ -8,25 +8,16 @@ function SideBar({ onEditProfile, onSignOut }) {
   const avatarUrl = currentUser?.avatar || "";
 
   return (
-    <div className="profile__header">
-      <div className="profile__user">
-        <img className="profile__avatar" src={avatarUrl} alt="user avatar" />
-        <h2 className="profile__name">{username}</h2>
+    <div className="sidebar">
+      <div className="sidebar__profile">
+        <img className="sidebar__avatar" src={avatarUrl} alt="user avatar" />
+        <h2 className="sidebar__name">{username}</h2>
       </div>
 
-      <button
-        type="button"
-        className="profile__edit-btn"
-        onClick={onEditProfile}
-      >
+      <button className="sidebar__btn" onClick={onEditProfile}>
         Change profile data
       </button>
-
-      <button
-        className="profile__logout"
-        type="button"
-        onClick={onSignOut}
-      >
+      <button className="sidebar__btn" onClick={onSignOut}>
         Log out
       </button>
     </div>

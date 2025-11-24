@@ -4,7 +4,12 @@ import ItemCard from "../ItemCard/ItemCard";
 import { useContext } from "react";
 import currentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.js";
 
-export default function Main({ weatherData, clothingItems, onCardClick, onCardLike }) {
+export default function Main({
+  weatherData,
+  clothingItems,
+  onCardClick,
+  onCardLike,
+}) {
   const { currentTemperatureUnit } = useContext(currentTemperatureUnitContext);
   const displayTemp =
     currentTemperatureUnit === "F"
@@ -19,10 +24,7 @@ export default function Main({ weatherData, clothingItems, onCardClick, onCardLi
         </p>
         <ul className="card__list">
           {clothingItems
-            ?.filter((item) => {
-              if (!weatherData?.type) return true;
-              return item.weather === weatherData.type;
-            })
+            .filter((item) => item && item.weather === weatherData.type)
             .map((item, index) => {
               return (
                 <ItemCard

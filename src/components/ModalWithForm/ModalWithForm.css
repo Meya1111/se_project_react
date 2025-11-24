@@ -146,3 +146,6 @@ place-items: center;
   .modal__alt:hover {
   opacity: 1;
   }
+
+  .modal__radio-option {}
+  

@@ -5,6 +5,7 @@
     padding: 0 30px;
     list-style-type: none;
     gap: 32px; 
+    width: 100%;
    }
 
    .clothes-section__header {

@@ -6,6 +6,7 @@
  align-items: flex-start;
  gap: 16px;
  flex-wrap: wrap;
+ overflow: hidden;
 }
 
 .card__name {
@@ -42,6 +43,7 @@
   cursor: pointer;
   padding: 0;
   outline: none;
+background-color: transparent;
 }
 
 .card__like-button_active {
@@ -53,4 +55,19 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+.card__header {
+  position: absolute;
+  top: 8px;               /* distance from top of card */
+  left: 50%;
+  transform: translateX(-50%);  /* center horizontally */
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 2px 10px;
+  border-radius: 999px;   /* rounded pill like Figma */
+  background-color: #ffffff;
 }

@@ -56,35 +56,25 @@ function Header({
             </li>
           ) : (
             <>
-              <li>
-                <button
-                  onClick={handleAddClick}
-                  type="button"
-                  className="header__add-clothes-btn"
-                >
-                  + Add clothes
-                </button>
-              </li>
+             <li className="header__user-container">
+  <button
+    onClick={handleAddClick}
+    type="button"
+    className="header__add-clothes-btn"
+  >
+    + Add Clothes
+  </button>
 
-              <li>
-                <Link to="/profile" className="header__link">
-                  <div className="header__profile">
-                    <div className="header__username">{username || ""}</div>
+  <Link to="/profile" className="header__link">
+    <div className="header__profile">
+      <div className="header__username">{username || ""}</div>
 
-                    {avatarUrl ? (
-                      <img
-                        className="header__avatar"
-                        src={avatarUrl}
-                        alt="user avatar"
-                      />
-                    ) : (
-                      <span className="header__avatar header__avatar_none">
-                        {userInitial}
-                      </span>
-                    )}
-                  </div>
-                </Link>
-              </li>
+      {avatarUrl ? (
+        <img className="header__avatar" src={avatarUrl} alt="user avatar" />
+      ) : null}
+    </div>
+  </Link>
+</li>
             </>
           )}
         </ul>
