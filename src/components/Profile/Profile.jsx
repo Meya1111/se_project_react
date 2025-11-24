@@ -7,8 +7,6 @@ import currentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 
 function Profile({
-  username,
-  avatar,
   clothingItems,
   onCardClick,
   onCardLike,
@@ -22,11 +20,10 @@ function Profile({
     currentTemperatureUnit === "F"
       ? Math.round(weatherData?.temp?.f ?? 0)
       : Math.round(weatherData?.temp?.c ?? 0);
+
   return (
     <div className="profile">
       <SideBar
-        username={username}
-        avatar={avatar}
         onEditProfile={onEditProfile}
         onSignOut={onSignOut}
       />

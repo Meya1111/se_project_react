@@ -1,10 +1,18 @@
 import "./SideBar.css";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function SideBar({ username, avatar, onEditProfile, onSignOut }) {
+function SideBar({ onEditProfile, onSignOut }) {
+  const currentUser = useContext(CurrentUserContext);
+  const username = currentUser?.name || "";
+  const avatarUrl = currentUser?.avatar || "";
+
   return (
-     <div className="profile__header">
-      <img className="profile__avatar" src={avatar} alt="user avatar" />
-      <h2 className="profile__name">{username}</h2>
+    <div className="profile__header">
+      <div className="profile__user">
+        <img className="profile__avatar" src={avatarUrl} alt="user avatar" />
+        <h2 className="profile__name">{username}</h2>
+      </div>
 
       <button
         type="button"

@@ -289,7 +289,7 @@ function App() {
                       <Profile
                         onCardClick={handleCardClick}
                         onCardLike={handleCardLike}
-                        username="Terrence Tegegne"
+                        username={""}
                         avatar={avatar}
                         clothingItems={clothingItems}
                         onAddClick={handleAddClick}

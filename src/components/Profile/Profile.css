@@ -35,7 +35,7 @@
   .profile__edit-btn {
     background: transparent;
     border: none;
-    font-size: 14px;
+    font-size: 20px;
     cursor: pointer;
     margin-top: 8px;
   }
@@ -43,7 +43,7 @@
   .profile__logout {
     background: transparent;
     border: none;
-    font-size: 14px;
+    font-size: 20px;
     cursor: pointer;
     margin-top: 8px;
   }
